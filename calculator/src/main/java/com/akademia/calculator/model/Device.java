@@ -4,25 +4,23 @@ import lombok.*;
 
 import java.math.BigDecimal;
 
-//@NoArgsConstructor
+
 @ToString
-//@AllArgsConstructor
+@Getter
+@Setter
 public class Device {
 
+    private String nazwa;
+    private Long power;
+    private BigDecimal priceForHour;
+    private BigDecimal priceForDay;
+
     public Device(Long power) {
+
         this.power = power;
     }
 
-    @Getter
-    private String name;
-    @Getter
-    private Long power;
-    @Setter
-    @Getter
-    private BigDecimal priceForHour;
-    @Setter
-    @Getter
-    private BigDecimal priceForDay;
+    public Device() {
 
-
+    }
 }

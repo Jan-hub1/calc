@@ -15,10 +15,11 @@ public class CalculateService {
     public Device calculatePrice(Device device){
 
         BigDecimal priceForDay = new BigDecimal(device.getPower()).multiply(DAY_PRICE);
-        BigDecimal proceForHour = new BigDecimal(device.getPower()).multiply(HOUR_PRICE).setScale(2,BigDecimal.ROUND_HALF_DOWN);
+        BigDecimal priceForHour = new BigDecimal(device.getPower()).multiply(HOUR_PRICE)
+                .setScale(2,BigDecimal.ROUND_HALF_DOWN);
 
         device.setPriceForDay(priceForDay);
-        device.setPriceForHour(proceForHour);
+        device.setPriceForHour(priceForHour);
 
         return device;
     }

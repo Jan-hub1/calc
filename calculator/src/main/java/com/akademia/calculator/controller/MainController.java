@@ -5,23 +5,34 @@ import com.akademia.calculator.model.Device;
 import com.akademia.calculator.service.CalculateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 @Controller
 public class MainController {
 
-    @Autowired
-    CalculateService calculateService;
+    private final CalculateService calculateService;
 
-    @GetMapping("/")
-    @ResponseBody
-    public String greeting(){
-        Device device = new Device(1450L);
+    public MainController(CalculateService calculateService) {
+        this.calculateService = calculateService;
+    }
+
+    @GetMapping("/device")
+    public String greeting(Model model){
+        Device device = new Device();
+        model.addAttribute("device", device);
+        return "greeting";
+
+    }
+
+
+    @PostMapping("/device")
+    public String greetingSubmit(@ModelAttribute Device device) {
         calculateService.calculatePrice(device);
-        return "Cennik: " + "Cena za dzień: " + device.getPriceForDay()
-                + ", Cena za godzinę: " + device.getPriceForHour();
-
+        return "result";
     }
 
 

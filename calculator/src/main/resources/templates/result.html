@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Power Form </title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+</head>
+<body>
+<h2> Koszt poniesiony za używanie urządzenia: </h2>
+<p th:text = " 'Nazwa: ' + ${device.nazwa}" />
+<p th:text = " 'Moc urządzenia: ' + ${device.power} + ' W'" />
+<p th:text = " 'Cena za godzinę: ' + ${device.priceForHour} + ' zł'" />
+<p th:text = " 'Cena za dobę: ' + ${device.priceForDay} + ' zł'" />
+<a href ="/device"> Wróć do poprzedniej strony </a>
+</body>
+</html>
+
