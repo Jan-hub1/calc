@@ -5,7 +5,6 @@ import lombok.*;
 import java.math.BigDecimal;
 
 
-@ToString
 @Getter
 @Setter
 public class Device {
@@ -15,12 +14,4 @@ public class Device {
     private BigDecimal priceForHour;
     private BigDecimal priceForDay;
 
-    public Device(Long power) {
-
-        this.power = power;
-    }
-
-    public Device() {
-
-    }
 }

@@ -22,8 +22,7 @@ public class MainController {
 
     @GetMapping("/device")
     public String greeting(Model model){
-        Device device = new Device();
-        model.addAttribute("device", device);
+        model.addAttribute("device", new Device());
         return "greeting";
 
     }
